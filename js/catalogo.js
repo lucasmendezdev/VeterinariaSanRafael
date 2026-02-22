@@ -1,13 +1,19 @@
+// ===============================
+// ELEMENTOS
+// ===============================
 const contenedorCatalogo = document.getElementById("catalogo");
 const botonesFiltro = document.querySelectorAll(".filtro-btn");
+const contadorCarrito = document.getElementById("contadorCarrito");
 
 // ===============================
-// RENDER
+// RENDER CATALOGO
 // ===============================
 function renderizarCatalogo(lista) {
+
   contenedorCatalogo.innerHTML = "";
 
   lista.forEach(producto => {
+
     const card = document.createElement("div");
     card.className = "producto-card";
 
@@ -18,10 +24,9 @@ function renderizarCatalogo(lista) {
       <button class="btn-agregar">Agregar al carrito</button>
     `;
 
-    // Agregar al carrito (SIN talle)
     card.querySelector(".btn-agregar").addEventListener("click", () => {
       agregarAlCarrito(producto);
-      mostrarToast("PRODUCTO AGREGADO ✔", "success");
+      mostrarToast("Producto agregado ✔", "success");
     });
 
     contenedorCatalogo.appendChild(card);
@@ -29,14 +34,13 @@ function renderizarCatalogo(lista) {
 }
 
 // ===============================
-// CARRITO
+// AGREGAR AL CARRITO
 // ===============================
 function agregarAlCarrito(producto) {
+
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-  const existente = carrito.find(
-    p => p.id === producto.id
-  );
+  const existente = carrito.find(p => p.id === producto.id);
 
   if (existente) {
     existente.cantidad++;
@@ -46,19 +50,36 @@ function agregarAlCarrito(producto) {
       nombre: producto.nombre,
       precio: producto.precio,
       imagen: producto.imagen,
+      descripcion: producto.descripcion || "",
       cantidad: 1
     });
   }
 
   localStorage.setItem("carrito", JSON.stringify(carrito));
-  actualizarContadorCarrito();
+  actualizarContador();
+}
+
+// ===============================
+// CONTADOR
+// ===============================
+function actualizarContador() {
+
+  if (!contadorCarrito) return;
+
+  const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+  const total = carrito.reduce((acc, item) => acc + item.cantidad, 0);
+
+  contadorCarrito.textContent = total;
 }
 
 // ===============================
 // FILTROS
 // ===============================
 botonesFiltro.forEach(btn => {
+
   btn.addEventListener("click", () => {
+
     botonesFiltro.forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
 
@@ -71,13 +92,11 @@ botonesFiltro.forEach(btn => {
 
     renderizarCatalogo(filtrados);
   });
+
 });
 
-// INIT
-renderizarCatalogo(productos);
-
 // ===============================
-// TOAST (solo éxito ahora)
+// TOAST
 // ===============================
 function mostrarToast(mensaje, tipo = "success") {
 
@@ -89,7 +108,7 @@ function mostrarToast(mensaje, tipo = "success") {
     document.body.appendChild(toast);
   }
 
-  toast.classList.remove("success", "warning");
+  toast.classList.remove("success", "warning", "error");
   toast.classList.add(tipo);
 
   toast.textContent = mensaje;
@@ -101,17 +120,9 @@ function mostrarToast(mensaje, tipo = "success") {
 }
 
 // ===============================
-// Toggle filtros mobile
+// INIT
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
-
-  const btn = document.getElementById("btnToggleFiltros");
-  const filtros = document.getElementById("filtrosTop");
-
-  if (!btn || !filtros) return;
-
-  btn.addEventListener("click", () => {
-    filtros.classList.toggle("activo");
-  });
-
+  renderizarCatalogo(productos);
+  actualizarContador();
 });

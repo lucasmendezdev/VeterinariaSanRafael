@@ -1,5 +1,6 @@
-const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
+// ===============================
+// ELEMENTOS
+// ===============================
 const resumen = document.getElementById("resumenPedido");
 const totalSpan = document.getElementById("totalCompra");
 const form = document.getElementById("checkoutForm");
@@ -7,15 +8,11 @@ const form = document.getElementById("checkoutForm");
 const btnEnvio = document.getElementById("btnEnvio");
 const envioBox = document.getElementById("envioBox");
 
-let total = 0;
-
-
-
 // ===============================
-// Toggle envio
+// TOGGLE ENVÍO
 // ===============================
-
 btnEnvio.addEventListener("click", () => {
+
   envioBox.classList.toggle("show");
 
   if (envioBox.classList.contains("show")) {
@@ -23,77 +20,88 @@ btnEnvio.addEventListener("click", () => {
   } else {
     btnEnvio.textContent = "📦 ¿Necesitás envío?";
   }
+
 });
 
-
-
 // ===============================
-// Texto pedido
+// GENERAR TEXTO PEDIDO
 // ===============================
-
-function generarTextoPedido() {
+function generarTextoPedido(carrito) {
 
   let texto = "";
 
   carrito.forEach(item => {
 
+    const subtotal = item.precio * item.cantidad;
+
     texto += `
-${item.nombre} (${item.talle}) x${item.cantidad}
-$${item.precio * item.cantidad}
+${item.nombre} x${item.cantidad}
+$${subtotal.toLocaleString()}
 
 `;
+
   });
 
   return texto;
 }
 
-
-
 // ===============================
-// Resumen
+// MOSTRAR RESUMEN
 // ===============================
-
 function mostrarResumen() {
 
+  const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
   resumen.innerHTML = "";
-  total = 0;
+
+  let total = 0;
+
+  if (carrito.length === 0) {
+
+    resumen.innerHTML = "<p>Tu carrito está vacío</p>";
+    totalSpan.textContent = "0";
+    return;
+  }
 
   carrito.forEach(item => {
 
     const div = document.createElement("div");
-
     div.classList.add("resumen-item");
 
+    const subtotal = item.precio * item.cantidad;
+
     div.innerHTML = `
-      <span>${item.nombre} (${item.talle}) x${item.cantidad}</span>
-      <span>$${item.precio * item.cantidad}</span>
+      <span>${item.nombre} x${item.cantidad}</span>
+      <span>$${subtotal.toLocaleString()}</span>
     `;
 
     resumen.appendChild(div);
 
-    total += item.precio * item.cantidad;
+    total += subtotal;
   });
 
-  totalSpan.textContent = total;
+  totalSpan.textContent = total.toLocaleString();
 }
 
-mostrarResumen();
-
-
-
 // ===============================
-// Enviar
+// ENVIAR PEDIDO
 // ===============================
-
 form.addEventListener("submit", e => {
 
   e.preventDefault();
+
+  const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
   if (carrito.length === 0) {
     alert("El carrito está vacío");
     return;
   }
 
+  // 🔥 Calcular total real
+  const totalFinal = carrito.reduce(
+    (acc, item) => acc + item.precio * item.cantidad,
+    0
+  );
 
   const data = {
     nombre: form.nombre.value,
@@ -101,11 +109,9 @@ form.addEventListener("submit", e => {
     telefono: form.telefono.value,
     direccion: form.direccion?.value || "Retiro en local",
     ciudad: form.ciudad?.value || "",
-    pedido: generarTextoPedido(),
-    total: total
+    pedido: generarTextoPedido(carrito),
+    total: totalFinal.toLocaleString()
   };
-
-
 
   emailjs.send(
     "service_z7dok6h",
@@ -114,14 +120,11 @@ form.addEventListener("submit", e => {
   )
   .then(() => {
 
-
-    // Toast
+    // Mostrar toast
     const toast = document.getElementById("toastSuccess");
-
     toast.classList.add("show");
 
-
-    // WhatsApp
+    // Mensaje WhatsApp
     const mensaje = `
 Hola! Hice un pedido:
 
@@ -136,17 +139,11 @@ ${data.pedido}
 Total: $${data.total}
 `;
 
-
     const telefonoTienda = "5492625527155";
-
     const url = `https://wa.me/${telefonoTienda}?text=${encodeURIComponent(mensaje)}`;
-
-
 
     // Limpiar carrito
     localStorage.removeItem("carrito");
-
-
 
     // Redirigir
     setTimeout(() => {
@@ -154,15 +151,15 @@ Total: $${data.total}
       window.location.href = "index.html";
     }, 3000);
 
-
-
   })
   .catch(err => {
-
     console.error(err);
-
     alert("Error al enviar pedido. Intentá nuevamente.");
-
   });
 
 });
+
+// ===============================
+// INIT
+// ===============================
+mostrarResumen();

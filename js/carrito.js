@@ -1,69 +1,60 @@
+// ===============================
+// ELEMENTOS
+// ===============================
 const lista = document.getElementById("listaCarrito");
 const totalEl = document.getElementById("total");
+const btnFinalizar = document.getElementById("btnFinalizar");
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
+// ===============================
+// CREAR ITEM
+// ===============================
 function crearItem(item, index) {
+
   const div = document.createElement("div");
   div.className = "item";
 
-  const img = document.createElement("img");
-  img.src = item.imagen;
+  div.innerHTML = `
+    <img src="${item.imagen}" alt="${item.nombre}">
+    <div class="info">
+      <h3>${item.nombre}</h3>
+      <span>${item.descripcion || ""}</span>
+      <strong>$${(item.precio * item.cantidad).toLocaleString()}</strong>
+    </div>
+    <div class="cantidad">
+      <button class="menos">−</button>
+      <span>${item.cantidad}</span>
+      <button class="mas">+</button>
+    </div>
+    <div class="eliminar">✕</div>
+  `;
 
-  const info = document.createElement("div");
-
-  const nombre = document.createElement("h3");
-  nombre.textContent = item.nombre;
-
-  const descripcion = document.createElement("span");
-  descripcion.textContent = item.descripcion || "";
-
-  const precio = document.createElement("strong");
-  precio.textContent = `$${item.precio * item.cantidad}`;
-
-  info.append(nombre, descripcion, document.createElement("br"), precio);
-
-  const cantidad = document.createElement("div");
-  cantidad.className = "cantidad";
-
-  const menos = document.createElement("button");
-  menos.textContent = "−";
-
-  const num = document.createElement("span");
-  num.textContent = item.cantidad;
-
-  const mas = document.createElement("button");
-  mas.textContent = "+";
-
-  menos.onclick = () => {
+  // Botones
+  div.querySelector(".menos").onclick = () => {
     item.cantidad--;
-    if (item.cantidad <= 0) {
-      carrito.splice(index, 1);
-    }
+    if (item.cantidad <= 0) carrito.splice(index, 1);
     guardar();
   };
 
-  mas.onclick = () => {
+  div.querySelector(".mas").onclick = () => {
     item.cantidad++;
     guardar();
   };
 
-  cantidad.append(menos, num, mas);
-
-  const eliminar = document.createElement("div");
-  eliminar.className = "eliminar";
-  eliminar.textContent = "✕";
-  eliminar.onclick = () => {
+  div.querySelector(".eliminar").onclick = () => {
     carrito.splice(index, 1);
     guardar();
   };
 
-  div.append(img, info, cantidad, eliminar);
-
   return div;
 }
 
+// ===============================
+// RENDER
+// ===============================
 function render() {
+
   lista.innerHTML = "";
 
   if (carrito.length === 0) {
@@ -81,12 +72,68 @@ function render() {
     0
   );
 
-  totalEl.textContent = `$${total}`;
+  totalEl.textContent = `$${total.toLocaleString()}`;
 }
 
+// ===============================
+// GUARDAR
+// ===============================
 function guardar() {
   localStorage.setItem("carrito", JSON.stringify(carrito));
+  carrito = JSON.parse(localStorage.getItem("carrito")) || [];
   render();
 }
 
+// ===============================
+// TOAST
+// ===============================
+function mostrarToast(mensaje, tipo = "warning") {
+
+  let toast = document.querySelector(".toast");
+
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.className = "toast";
+    document.body.appendChild(toast);
+  }
+
+  toast.classList.remove("success", "warning", "error");
+  toast.classList.add(tipo);
+
+  toast.textContent = mensaje;
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2500);
+}
+
+
+// ===============================
+// Bloquear checkout si carrito vacío
+// ===============================
+
+const btnCheckout = document.getElementById("btnCheckout");
+
+if (btnCheckout) {
+
+  btnCheckout.addEventListener("click", e => {
+
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    if (carrito.length === 0) {
+
+      e.preventDefault(); // Bloquea link
+
+      mostrarToast("¡EL CARRITO ESTA VACIO!");
+
+    }
+
+  });
+
+}
+
+// ===============================
+// INIT
+// ===============================
 render();
