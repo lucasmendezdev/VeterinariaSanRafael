@@ -104,60 +104,121 @@ a:active {
   border-radius: 50%;
 }
 
-
 /* ===============================
-   HERO
+   HERO VETERINARIA
 =============================== */
 
 .hero {
-  min-height: calc(100vh - 64px);
-
+  position: relative;
+  height: 85vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-
   text-align: center;
+  padding: 20px;
+  overflow: hidden;
 
-  padding: 60px 20px;
+  background: 
+    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+    url("../assets/img/logoVete.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #ffffff;
 }
 
-.hero h2 {
-  font-size: 44px;
+/* Contenido */
+.hero-content {
+  max-width: 850px;
+  animation: fadeUp 1.2s ease forwards;
+}
+
+/* Título */
+.hero h1 {
+  font-size: 48px;
+  line-height: 1.2;
+  margin-bottom: 20px;
   font-weight: 700;
-  letter-spacing: -0.5px;
-  margin-bottom: 15px;
 }
 
+/* Texto */
 .hero p {
-  font-size: 18px;
-  color: #555;
-  max-width: 600px;
-  margin-bottom: 30px;
+  font-size: 20px;
+  margin-bottom: 35px;
+  opacity: 0.9;
 }
 
-.hero .btn {
-  display: inline-block;
-  padding: 14px 36px;
+/* Contenedor botones */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
 
-  background: #000;
-  color: #fff;
-
-  text-decoration: none;
-  font-size: 14px;
+/* Botón principal */
+.btn-primary {
+  background: #00b894;
+  color: white;
+  padding: 14px 30px;
+  border-radius: 40px;
   font-weight: 600;
-  letter-spacing: 0.5px;
-
-  border-radius: 4px;
-  transition: all 0.25s ease;
+  text-decoration: none;
+  transition: 0.3s ease;
 }
 
-.hero .btn:hover {
-  background: #111;
-  transform: translateY(-2px);
+.btn-primary:hover {
+  background: #00a383;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
+/* Botón secundario */
+.btn-secondary {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 14px 30px;
+  border-radius: 40px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
 
+.btn-secondary:hover {
+  background: white;
+  color: #111;
+  transform: translateY(-3px);
+}
+
+/* Animación entrada */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .hero {
+    background-attachment: scroll;
+  }
+}
 /* ===============================
    SLIDER
 =============================== */

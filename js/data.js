@@ -6,8 +6,7 @@ const productos = [
     categoria: "perro",
     tipo: "alimentoPerro",
     imagen: "assets/img/drCossiaCachorro.png",
-    mordida: ["MORDIDA GRANDE", "MORDIDA PEQUEÑA"],
-    descripcion: "Remera de algodón, cómoda y versátil para todos los días."
+    descripcion: "Este alimento tiene 30% de proteina. "
   },
   {
     id: 2,
@@ -16,8 +15,7 @@ const productos = [
     categoria: "perro",
     tipo: "alimentoPerro",
     imagen: "assets/img/drCossiaAdulto.png",
-    mordida: ["MORDIDA GRANDE", "MORDIDA PEQUEÑA"],
-    descripcion: "Buzo oversize de frisa, ideal para un look urbano."
+    descripcion: "Este alimento tiene 30% de proteina. "
   },
   {
     id: 3,
@@ -26,8 +24,7 @@ const productos = [
     categoria: "gato",
     tipo: "alimentoGato",
     imagen: "assets/img/drCossiaClassicCat.png",
-    mordida: ["MORDIDA GRANDE", "MORDIDA PEQUEÑA"],
-    descripcion: "Buzo oversize de frisa, ideal para un look urbano."
+    descripcion: "Este alimento tiene 30% de proteina. "
   },
   {
     id: 4,
@@ -36,8 +33,7 @@ const productos = [
     categoria: "gato",
     tipo: "alimentoGato",
     imagen: "assets/img/drCossiaSuperPremiumCat.png",
-    mordida: ["MORDIDA GRANDE", "MORDIDA PEQUEÑA"],
-    descripcion: "Buzo oversize de frisa, ideal para un look urbano."
+    descripcion: "Este alimento tiene 30% de proteina. "
   }
   ,
   {
@@ -47,8 +43,7 @@ const productos = [
     categoria: "perro",
     tipo: "alimentoPerro",
     imagen: "assets/img/apAdulto.jpg",
-    mordida: ["MORDIDA GRANDE", "MORDIDA PEQUEÑA"],
-    descripcion: "Buzo oversize de frisa, ideal para un look urbano."
+    descripcion: "Este alimento tiene 30% de proteina. "
   },
   {
     id: 6,
@@ -57,8 +52,7 @@ const productos = [
     categoria: "gato",
     tipo: "alimentoGato",
     imagen: "assets/img/sabrositosGato.png",
-    mordida: ["MORDIDA GRANDE", "MORDIDA PEQUEÑA"],
-    descripcion: "Buzo oversize de frisa, ideal para un look urbano."
+    descripcion: "Este alimento tiene 30% de proteina. "
   },
   {
     id: 7,
@@ -67,8 +61,7 @@ const productos = [
     categoria: "perro",
     tipo: "alimentoPerro",
     imagen: "assets/img/sabrositosAdulto.png",
-    mordida: ["MORDIDA GRANDE", "MORDIDA PEQUEÑA"],
-    descripcion: "Buzo oversize de frisa, ideal para un look urbano."
+    descripcion: "Este alimento tiene 30% de proteina. "
   },
   {
     id: 8,
@@ -77,7 +70,6 @@ const productos = [
     categoria: "perro",
     tipo: "alimentoPerro",
     imagen: "assets/img/sabrositosCachorro.png",
-    mordida: ["MORDIDA GRANDE", "MORDIDA PEQUEÑA"],
-    descripcion: "Buzo oversize de frisa, ideal para un look urbano."
+    descripcion: "Este alimento tiene 30% de proteina. "
   }
 ];
