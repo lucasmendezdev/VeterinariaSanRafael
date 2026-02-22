@@ -1,5 +1,3 @@
-
-
 const lista = document.getElementById("listaCarrito");
 const totalEl = document.getElementById("total");
 
@@ -13,16 +11,17 @@ function crearItem(item, index) {
   img.src = item.imagen;
 
   const info = document.createElement("div");
+
   const nombre = document.createElement("h3");
   nombre.textContent = item.nombre;
 
-  const talle = document.createElement("span");
-  talle.textContent = `Talle: ${item.talle}`;
+  const descripcion = document.createElement("span");
+  descripcion.textContent = item.descripcion || "";
 
   const precio = document.createElement("strong");
   precio.textContent = `$${item.precio * item.cantidad}`;
 
-  info.append(nombre, talle, document.createElement("br"), precio);
+  info.append(nombre, descripcion, document.createElement("br"), precio);
 
   const cantidad = document.createElement("div");
   cantidad.className = "cantidad";
@@ -60,6 +59,7 @@ function crearItem(item, index) {
   };
 
   div.append(img, info, cantidad, eliminar);
+
   return div;
 }
 
@@ -87,57 +87,6 @@ function render() {
 function guardar() {
   localStorage.setItem("carrito", JSON.stringify(carrito));
   render();
-}
-
-
-// ===============================
-// Bloquear checkout si carrito vacío
-// ===============================
-
-const btnCheckout = document.getElementById("btnCheckout");
-
-if (btnCheckout) {
-
-  btnCheckout.addEventListener("click", e => {
-
-    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-    if (carrito.length === 0) {
-
-      e.preventDefault(); // Bloquea link
-
-      mostrarToast("¡EL CARRITO ESTA VACIO!");
-
-    }
-
-  });
-
-}
-
-
-// ===============================
-// Toast warning
-// ===============================
-
-function mostrarToast(mensaje) {
-
-  let toast = document.querySelector(".toast");
-
-  if (!toast) {
-
-    toast = document.createElement("div");
-    toast.className = "toast toast-warning";
-
-    document.body.appendChild(toast);
-  }
-
-  toast.textContent = mensaje;
-
-  toast.classList.add("show");
-
-  setTimeout(() => {
-    toast.classList.remove("show");
-  }, 2500);
 }
 
 render();

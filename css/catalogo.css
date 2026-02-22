@@ -7,209 +7,49 @@
   gap: 10px;
   padding: 15px;
   overflow-x: auto;
+  justify-content: center;
 }
 
 .filtro-btn {
   padding: 8px 16px;
-  border-radius: 20px;
+  border-radius: 999px;
   border: 1px solid #ddd;
-  background: transparent;
+  background: #f6f6f6;
   cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.filtro-btn:hover {
+  background: #111;
+  color: #fff;
 }
 
 .filtro-btn.active {
-  background: #000;
+  background: #111;
   color: #fff;
 }
 
 
 /* =====================================================
-   GRID DEL CATALOGO
+   GRID DEL CATALOGO (AUTO RESPONSIVE PRO)
 ===================================================== */
 
 .catalogo-grid {
-  max-width: 1400px;       /* Limita ancho */
-  
-  margin: auto;         /* Centrado */
+  max-width: 1400px;
+  margin: auto;
 
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: 30px;
-
-  padding: 30px 50px;
+  gap: 25px;
+  padding: 30px 40px;
 }
 
 
 /* =====================================================
-   PRODUCTO CARD (BASE)
-===================================================== */
-
-.producto-card {
-  border: 1px solid #eee;
-  padding: 15px;
-  text-align: center;
-}
-
-.producto-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
-
-.precio {
-  font-weight: bold;
-  margin: 10px 0;
-}
-
-
-/* =====================================================
-   TALLES
-===================================================== */
-
-.talles {
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-  margin-bottom: 10px;
-}
-
-.talle-btn {
-  padding: 4px 8px;
-  border: 1px solid #ccc;
-  background: none;
-  cursor: pointer;
-}
-
-.talle-btn.active {
-  background: #000;
-  color: #fff;
-}
-
-
-/* =====================================================
-   BOTON AGREGAR
-===================================================== */
-
-.btn-agregar {
-  width: 100%;
-  padding: 8px;
-  background: #000;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-
-/* =====================================================
-   ERROR (SIN TALLE)
-===================================================== */
-
-.producto-card.error {
-  animation: shake 0.3s;
-  border-color: #f97316;;
-}
-
-@keyframes shake {
-  0%   { transform: translateX(0); }
-  25%  { transform: translateX(-5px); }
-  50%  { transform: translateX(5px); }
-  75%  { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
-}
-
-
-/* =====================================================
-   ANIMACION AGREGAR AL CARRITO
-===================================================== */
-
-/* Click boton */
-
-.btn-agregar,
-.agregar {
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.btn-agregar:active,
-.agregar:active {
-  transform: scale(0.95);
-}
-
-
-/* Exito */
-
-.agregado {
-  animation: agregadoPop 0.4s ease;
-}
-
-@keyframes agregadoPop {
-
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.05);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
-
-/* =====================================================
-   TOAST MENSAJE
-===================================================== */
-/* ===============================
-   TOAST CON COLORES
-=============================== */
-
-.toast {
-  position: fixed;
-
-  bottom: 30px;
-  right: 30px;
-
-  padding: 12px 20px;
-  border-radius: 4px;
-
-  font-size: 14px;
-  font-weight: 500;
-
-  color: #fff;
-
-  opacity: 0;
-  transform: translateY(20px);
-
-  pointer-events: none;
-
-  transition: all 0.3s ease;
-
-  z-index: 9999;
-}
-
-
-/* Estados */
-
-.toast.success {
-  background: #16a34a; /* Verde */
-}
-
-.toast.warning {
-  background: #f97316; /* Naranja */
-}
-
-
-.toast.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
-/* =====================================================
-   PRODUCTO CARD MEJORADO (PRO)
+   PRODUCTO CARD
 ===================================================== */
 
 .producto-card {
@@ -217,19 +57,17 @@
   flex-direction: column;
 
   border: 1px solid #eee;
-  border-radius: 4px;
+  border-radius: 6px;
 
   padding: 16px;
-
   background: #fff;
 
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .producto-card:hover {
-  transform: translateY(-3px);
-
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
 
@@ -238,105 +76,164 @@
 .producto-card img {
   width: 100%;
   height: 240px;
-
   object-fit: cover;
 
   margin-bottom: 12px;
-
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 
 /* Texto */
 
 .producto-card h3 {
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 500;
   margin-bottom: 6px;
 }
 
 .producto-card .precio {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
-
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 
 /* =====================================================
-   RESPONSIVE GRID
+   BOTON AGREGAR
 ===================================================== */
 
-@media (max-width: 1300px) {
+.btn-agregar {
+  margin-top: auto;
+
+  width: 100%;
+  padding: 10px;
+
+  background: #111;
+  color: #fff;
+
+  border: none;
+  border-radius: 4px;
+
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+
+  transition: all 0.2s ease;
+}
+
+.btn-agregar:hover {
+  background: #000;
+}
+
+.btn-agregar:active {
+  transform: scale(0.96);
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+
+  padding: 12px 20px;
+  border-radius: 6px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  color: #fff;
+
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+.toast.success {
+  background: #16a34a;
+}
+
+.toast.warning {
+  background: #f97316;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+/* Tablet */
+
+@media (max-width: 900px) {
 
   .catalogo-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 18px;
+    padding: 20px;
+  }
+
+  .producto-card img {
+    height: 200px;
   }
 
 }
 
-@media (max-width: 1000px) {
 
-  .catalogo-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+/* Mobile */
 
-}
-
-@media (max-width: 700px) {
+@media (max-width: 500px) {
 
   .catalogo-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 15px;
   }
 
-}
-
-@media (max-width: 450px) {
-
-  .catalogo-grid {
-    grid-template-columns: 1fr;
+  .producto-card {
+    padding: 10px;
   }
 
-}
-/* ===============================
-   FILTROS TOP - RESPONSIVE MOBILE
-=============================== */
-
-@media (max-width: 768px) {
-
-  .filtros-top {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-
-    gap: 10px;
-    padding: 12px 8px;
+  .producto-card img {
+    height: 150px;
   }
 
-  .filtros-top .filtro-btn {
-    min-width: 90px;
-    padding: 8px 14px;
+  .producto-card h3 {
+    font-size: 13px;
+  }
 
+  .producto-card .precio {
     font-size: 14px;
-    text-align: center;
+    margin-bottom: 8px;
+  }
 
-    border-radius: 20px;
+  .btn-agregar {
+    padding: 7px;
+    font-size: 12px;
   }
 
 }
 
-/* ===============================
-   FILTROS MOBILE MINIMAL
-=============================== */
+
+/* =====================================================
+   FILTROS MOBILE TOGGLE
+===================================================== */
 
 @media (max-width: 768px) {
-
-  /* Botón */
 
   .filtros-mobile-btn {
     display: flex;
     justify-content: center;
-
     padding: 12px 0;
   }
 
@@ -348,12 +245,10 @@
     border-radius: 999px;
 
     padding: 8px 22px;
-
     font-size: 14px;
     font-weight: 500;
 
     cursor: pointer;
-
     box-shadow: 0 3px 8px rgba(0,0,0,0.15);
 
     transition: all 0.2s ease;
@@ -363,17 +258,11 @@
     transform: scale(0.95);
   }
 
-
-  /* Contenedor filtros */
-
   .filtros-top {
     display: none;
-
-    justify-content: center;
     flex-wrap: wrap;
-
+    justify-content: center;
     gap: 10px;
-
     padding: 12px 10px;
   }
 
@@ -381,46 +270,10 @@
     display: flex;
   }
 
-
-  /* Botones filtros */
-
-  .filtro-btn {
-    background: #f6f6f6;
-
-    border: none;
-
-    border-radius: 999px;
-
-    padding: 7px 16px;
-
-    font-size: 13px;
-    font-weight: 500;
-
-    color: #111;
-
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-
-    transition: all 0.2s ease;
-  }
-
-  .filtro-btn:active {
-    transform: scale(0.95);
-  }
-
-
-  /* Activo */
-
-  .filtro-btn.active {
-    background: #111;
-    color: #fff;
-
-    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-  }
-
 }
 
 
-/* Desktop normal */
+/* Desktop */
 
 @media (min-width: 769px) {
 

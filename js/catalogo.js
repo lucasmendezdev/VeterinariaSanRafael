@@ -15,39 +15,12 @@ function renderizarCatalogo(lista) {
       <img src="${producto.imagen}" alt="${producto.nombre}">
       <h3>${producto.nombre}</h3>
       <p class="precio">$${producto.precio.toLocaleString()}</p>
-
-      <div class="talles">
-        ${producto.talles.map(t => 
-          `<button class="talle-btn" data-talle="${t}">${t}</button>`
-        ).join("")}
-      </div>
-
       <button class="btn-agregar">Agregar al carrito</button>
     `;
 
-    let talleSeleccionado = null;
-
-    // Talles
-    const botonesTalle = card.querySelectorAll(".talle-btn");
-    botonesTalle.forEach(btn => {
-      btn.addEventListener("click", () => {
-        botonesTalle.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        talleSeleccionado = btn.dataset.talle;
-        
-      });
-    });
-
-    // Agregar
+    // Agregar al carrito (SIN talle)
     card.querySelector(".btn-agregar").addEventListener("click", () => {
-      if (!talleSeleccionado) {
-        card.classList.add("error");
-        setTimeout(() => card.classList.remove("error"), 400);
-        mostrarToast("¡TE OLVIDASTE DEL TALLE!", "warning");
-        return;
-      }
-
-      agregarAlCarrito(producto, talleSeleccionado);
+      agregarAlCarrito(producto);
       mostrarToast("PRODUCTO AGREGADO ✔", "success");
     });
 
@@ -58,11 +31,11 @@ function renderizarCatalogo(lista) {
 // ===============================
 // CARRITO
 // ===============================
-function agregarAlCarrito(producto, talle) {
+function agregarAlCarrito(producto) {
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
   const existente = carrito.find(
-    p => p.id === producto.id && p.talle === talle
+    p => p.id === producto.id
   );
 
   if (existente) {
@@ -90,6 +63,7 @@ botonesFiltro.forEach(btn => {
     btn.classList.add("active");
 
     const tipo = btn.dataset.tipo;
+
     const filtrados =
       tipo === "todos"
         ? productos
@@ -102,7 +76,9 @@ botonesFiltro.forEach(btn => {
 // INIT
 renderizarCatalogo(productos);
 
-
+// ===============================
+// TOAST (solo éxito ahora)
+// ===============================
 function mostrarToast(mensaje, tipo = "success") {
 
   let toast = document.querySelector(".toast");
@@ -113,14 +89,10 @@ function mostrarToast(mensaje, tipo = "success") {
     document.body.appendChild(toast);
   }
 
-  // Limpiar estados anteriores
   toast.classList.remove("success", "warning");
-
-  // Aplicar tipo
   toast.classList.add(tipo);
 
   toast.textContent = mensaje;
-
   toast.classList.add("show");
 
   setTimeout(() => {
@@ -128,11 +100,9 @@ function mostrarToast(mensaje, tipo = "success") {
   }, 2000);
 }
 
-
 // ===============================
 // Toggle filtros mobile
 // ===============================
-
 document.addEventListener("DOMContentLoaded", () => {
 
   const btn = document.getElementById("btnToggleFiltros");

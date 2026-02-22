@@ -6,17 +6,28 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: system-ui, sans-serif;
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
 body {
   background: #fff;
   color: #111;
+  line-height: 1.4;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:active,
+a:active {
+  transform: scale(0.97);
 }
 
 
 /* ===============================
-   HEADER GLOBAL
+   HEADER
 =============================== */
 
 .header {
@@ -27,9 +38,9 @@ body {
   align-items: center;
   justify-content: space-between;
 
-  padding: 0 20px;
+  padding: 0 30px;
 
-  background-color: #fff;
+  background: #fff;
   border-bottom: 1px solid #eee;
 
   position: sticky;
@@ -37,24 +48,15 @@ body {
   z-index: 100;
 }
 
-/* LOGO */
-
 .header__logo img {
-  height: 60px;
-  width: 80px;
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-decoration: none;
-  color: #000;
+  height: 50px;
+  width: auto;
 }
-
-/* NAV */
 
 .header__nav {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 28px;
 }
 
 .header__nav a {
@@ -66,18 +68,14 @@ body {
   transition: color 0.2s ease;
 }
 
-/* Hover */
-
 .header__nav a::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: -4px;
-
   width: 0%;
   height: 2px;
   background: #000;
-
   transition: width 0.25s ease;
 }
 
@@ -85,8 +83,7 @@ body {
   width: 100%;
 }
 
-
-/* CONTADOR */
+/* Carrito */
 
 #contadorCarrito {
   display: inline-flex;
@@ -107,12 +104,13 @@ body {
   border-radius: 50%;
 }
 
+
 /* ===============================
-   HERO HOME
+   HERO
 =============================== */
 
 .hero {
-  min-height: calc(100vh - 64px); /* Resta el header */
+  min-height: calc(100vh - 64px);
 
   display: flex;
   flex-direction: column;
@@ -121,42 +119,25 @@ body {
 
   text-align: center;
 
-  padding: 40px 20px;
-
-  background: #fff;
+  padding: 60px 20px;
 }
-
-
-/* TITULO */
 
 .hero h2 {
-  font-size: 42px;
+  font-size: 44px;
   font-weight: 700;
   letter-spacing: -0.5px;
-
   margin-bottom: 15px;
-
-  color: #111;
 }
-
-
-/* TEXTO */
 
 .hero p {
   font-size: 18px;
   color: #555;
-
-  max-width: 500px;
-
+  max-width: 600px;
   margin-bottom: 30px;
 }
 
-
-/* BOTON */
-
 .hero .btn {
   display: inline-block;
-
   padding: 14px 36px;
 
   background: #000;
@@ -167,8 +148,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.5px;
 
-  border-radius: 2px;
-
+  border-radius: 4px;
   transition: all 0.25s ease;
 }
 
@@ -179,66 +159,19 @@ body {
 
 
 /* ===============================
-   FOOTER
-=============================== */
-
-.footer {
-  width: 100%;
-
-  padding: 30px 20px;
-
-  text-align: center;
-
-  border-top: 1px solid #eee;
-
-  font-size: 13px;
-
-  color: #777;
-
-  background: #fff;
-}
-
-
-/* ===============================
-   MOBILE
-=============================== */
-
-@media (max-width: 768px) {
-
-  .hero h2 {
-    font-size: 30px;
-  }
-
-  .hero p {
-    font-size: 16px;
-  }
-
-  .hero .btn {
-    padding: 12px 28px;
-  }
-
-}
-/* ===============================
-   SLIDER FULL SCREEN
+   SLIDER
 =============================== */
 
 .slider {
   position: relative;
-
   width: 100%;
-  height: calc(100vh - 70px); 
-  /* 70px = alto aproximado del header */
-
+  height: calc(100vh - 64px);
   overflow: hidden;
 }
-
-
-/* Slide */
 
 .slide {
   position: absolute;
   inset: 0;
-
   opacity: 0;
   transition: opacity 1s ease;
 }
@@ -247,24 +180,19 @@ body {
   opacity: 1;
 }
 
-/* Imagen */
-
 .slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* Texto abajo */
-
 .slide-text {
   position: absolute;
-
   bottom: 0;
   left: 0;
   width: 100%;
 
-  padding: 25px 40px;
+  padding: 30px 50px;
 
   background: linear-gradient(
     to top,
@@ -276,10 +204,8 @@ body {
   color: #fff;
 }
 
-/* Títulos */
-
 .slide-text h2 {
-  font-size: 32px;
+  font-size: 34px;
   margin-bottom: 5px;
 }
 
@@ -289,8 +215,6 @@ body {
   opacity: 0.9;
 }
 
-/* Botón */
-
 .slide-text .btn {
   display: inline-block;
   text-decoration: none;
@@ -298,11 +222,10 @@ body {
   background: #fff;
   color: #000;
 
-  padding: 8px 18px;
+  padding: 10px 20px;
   border-radius: 4px;
 
   font-weight: 600;
-
   transition: all 0.2s ease;
 }
 
@@ -312,48 +235,12 @@ body {
 }
 
 
-
-/* ===============================
-   MOBILE SLIDER FIX
-=============================== */
-
-@media (max-width: 768px) {
-
-  .slider {
-    height: calc(100svh - 92px);
-  }
-
-  .slide img {
-    object-position: center top;
-  }
-
-  .slide-text {
-    padding: 18px 16px;
-  }
-
-  .slide-text h2 {
-    font-size: 20px;
-  }
-
-  .slide-text p {
-    font-size: 13px;
-  }
-
-  .slide-text .btn {
-    padding: 6px 14px;
-    font-size: 13px;
-  }
-
-}
-
-
-
 /* ===============================
    DESTACADOS
 =============================== */
 
 .destacados {
-  padding: 60px 20px;
+  padding: 70px 20px;
   max-width: 1300px;
   margin: auto;
 }
@@ -361,28 +248,26 @@ body {
 .destacados h2 {
   text-align: center;
   margin-bottom: 40px;
-  font-size: 28px;
-  color: #000000;
+  font-size: 30px;
 }
 
 .destacados-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
   gap: 30px;
 }
 
 .destacado-card {
   text-align: center;
-
   border: 1px solid #eee;
-  padding: 15px;
-
+  padding: 16px;
+  border-radius: 6px;
   transition: all 0.2s ease;
 }
 
 .destacado-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
 }
 
 .destacado-card img {
@@ -390,6 +275,7 @@ body {
   height: 260px;
   object-fit: cover;
   margin-bottom: 10px;
+  border-radius: 4px;
 }
 
 .destacado-card h3 {
@@ -403,93 +289,103 @@ body {
 
 
 /* ===============================
-   HEADER RESPONSIVE MEJORADO
+   FOOTER
 =============================== */
 
-/* Desktop ya lo tenés bien */
+.footer {
+  width: 100%;
+  padding: 40px 20px;
+  text-align: center;
+  border-top: 1px solid #eee;
+  font-size: 13px;
+  color: #777;
+}
 
-/* Mobile */
+
+/* ===============================
+   MOBILE OPTIMIZADO
+=============================== */
 
 @media (max-width: 768px) {
 
+  /* HEADER */
   .header {
-    flex-direction: column;
-
-    align-items: center;
-
-    gap: 12px;
-
-    padding: 12px 15px;
-
-    height: auto;
+    height: 56px;
+    padding: 0 15px;
   }
 
-
-  /* Logo */
-
-  .header__logo a {
-    font-size: 22px;
-    font-weight: 700;
+  .header__logo img {
+    height: 40px;
   }
-
-
-  /* Nav */
 
   .header__nav {
-    width: 100%;
-
-    display: flex;
-
-    justify-content: space-around;
-
-    align-items: center;
-
-    gap: 0;
+    gap: 16px;
   }
 
   .header__nav a {
     font-size: 13px;
-
-    padding: 6px 0;
-
-    flex: 1;
-
-    text-align: center;
   }
 
-
-  /* Subrayado hover */
-
-  .header__nav a::after {
-    bottom: -2px;
-    height: 1.5px;
+  /* HERO */
+  .hero {
+    min-height: calc(100svh - 56px);
+    padding: 40px 20px;
   }
 
-
-  /* Carrito badge */
-
-  #contadorCarrito {
-    min-width: 16px;
-    height: 16px;
-
-    font-size: 10px;
+  .hero h2 {
+    font-size: 28px;
+    line-height: 1.2;
   }
 
-}
+  .hero p {
+    font-size: 15px;
+    max-width: 90%;
+  }
 
+  .hero .btn {
+    width: 100%;
+    padding: 14px;
+  }
 
-/* Mobile chico */
+  /* SLIDER */
+  .slider {
+    height: 75svh;
+  }
 
-@media (max-width: 420px) {
+  .slide-text {
+    padding: 18px;
+  }
 
-  .header__logo a {
+  .slide-text h2 {
     font-size: 20px;
   }
 
-  .header__nav a {
-    font-size: 12px;
+  .slide-text p {
+    font-size: 13px;
+  }
+
+  .slide-text .btn {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+
+  /* DESTACADOS */
+  .destacados {
+    padding: 50px 15px;
+  }
+
+  .destacados h2 {
+    font-size: 22px;
+    margin-bottom: 25px;
+  }
+
+  .destacados-grid {
+    gap: 15px;
+  }
+
+  .destacado-card img {
+    height: 170px;
   }
 
 }
-
-

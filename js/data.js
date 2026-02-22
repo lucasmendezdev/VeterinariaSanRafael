@@ -6,7 +6,7 @@ const productos = [
     categoria: "perro",
     tipo: "alimentoPerro",
     imagen: "assets/img/drCossiaCachorro.png",
-    talles: ["M", "L", "XL"],
+    mordida: ["MORDIDA GRANDE", "MORDIDA PEQUEÑA"],
     descripcion: "Remera de algodón, cómoda y versátil para todos los días."
   },
   {
@@ -16,7 +16,7 @@ const productos = [
     categoria: "perro",
     tipo: "alimentoPerro",
     imagen: "assets/img/drCossiaAdulto.png",
-    talles: ["M", "L", "XL"],
+    mordida: ["MORDIDA GRANDE", "MORDIDA PEQUEÑA"],
     descripcion: "Buzo oversize de frisa, ideal para un look urbano."
   },
   {
@@ -26,7 +26,7 @@ const productos = [
     categoria: "gato",
     tipo: "alimentoGato",
     imagen: "assets/img/drCossiaClassicCat.png",
-    talles: ["M", "L", "XL"],
+    mordida: ["MORDIDA GRANDE", "MORDIDA PEQUEÑA"],
     descripcion: "Buzo oversize de frisa, ideal para un look urbano."
   },
   {
@@ -36,7 +36,7 @@ const productos = [
     categoria: "gato",
     tipo: "alimentoGato",
     imagen: "assets/img/drCossiaSuperPremiumCat.png",
-    talles: ["M", "L", "XL"],
+    mordida: ["MORDIDA GRANDE", "MORDIDA PEQUEÑA"],
     descripcion: "Buzo oversize de frisa, ideal para un look urbano."
   }
   ,
@@ -47,7 +47,7 @@ const productos = [
     categoria: "perro",
     tipo: "alimentoPerro",
     imagen: "assets/img/apAdulto.jpg",
-    talles: ["M", "L", "XL"],
+    mordida: ["MORDIDA GRANDE", "MORDIDA PEQUEÑA"],
     descripcion: "Buzo oversize de frisa, ideal para un look urbano."
   },
   {
@@ -57,7 +57,7 @@ const productos = [
     categoria: "gato",
     tipo: "alimentoGato",
     imagen: "assets/img/sabrositosGato.png",
-    talles: ["M", "L", "XL"],
+    mordida: ["MORDIDA GRANDE", "MORDIDA PEQUEÑA"],
     descripcion: "Buzo oversize de frisa, ideal para un look urbano."
   },
   {
@@ -67,7 +67,7 @@ const productos = [
     categoria: "perro",
     tipo: "alimentoPerro",
     imagen: "assets/img/sabrositosAdulto.png",
-    talles: ["M", "L", "XL"],
+    mordida: ["MORDIDA GRANDE", "MORDIDA PEQUEÑA"],
     descripcion: "Buzo oversize de frisa, ideal para un look urbano."
   },
   {
@@ -76,8 +76,8 @@ const productos = [
     precio: 22000,
     categoria: "perro",
     tipo: "alimentoPerro",
-    imagen: "assets/img/sabrositosC",
-    talles: ["M", "L", "XL"],
+    imagen: "assets/img/sabrositosCachorro.png",
+    mordida: ["MORDIDA GRANDE", "MORDIDA PEQUEÑA"],
     descripcion: "Buzo oversize de frisa, ideal para un look urbano."
   }
 ];
