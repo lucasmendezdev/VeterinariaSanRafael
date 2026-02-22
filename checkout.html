@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+  <meta charset="UTF-8">
+  <title>Checkout | Tienda</title>
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/checkout.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+  <header class="header">
+  <div class="header__logo">
+    <a href="index.html">
+      <img src="assets/img/logoVete.jpg" alt="">
+    </a>
+  </div>
+
+  <nav class="header__nav">
+    <a href="index.html">Inicio</a>
+    <a href="catalogo.html">Catálogo</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="carrito.html">
+      Carrito <span id="contadorCarrito">0</span>
+    </a>
+  </nav>
+  </header>
+
+
+<!-- MAIN -->
+<main class="checkout-container">
+
+  <h1>Detalles del pedido</h1>
+
+
+  <!-- MENSAJE UX -->
+  <p class="checkout-info">
+    Vas a coordinar el pago directamente por WhatsApp con el vendedor.
+  </p>
+
+
+  <form id="checkoutForm">
+
+
+    <!-- DATOS PERSONALES -->
+    <h2>Datos Personales</h2>
+
+    <div class="grupo">
+      <input type="text" name="nombre" placeholder="Nombre" required>
+      <input type="email" name="email" placeholder="Email" required>
+    </div>
+
+    <div class="grupo">
+      <input type="tel" name="telefono" placeholder="Teléfono" required>
+    </div>
+
+
+    <!-- BOTON ENVIO -->
+    <button type="button" id="btnEnvio" class="btn-envio">
+       ¿Necesitás envío? 📦
+    </button>
+
+
+    <!-- DATOS ENVIO -->
+    <div id="envioBox" class="envio-box">
+
+      <h2>Datos de Envío</h2>
+
+      <div class="grupo">
+        <input type="text" name="direccion" placeholder="Dirección">
+        <input type="text" name="ciudad" placeholder="Ciudad">
+      </div>
+
+      <div class="grupo">
+        <input type="text" name="cp" placeholder="Código Postal">
+      </div>
+
+    </div>
+
+
+    <!-- BOTON FINAL -->
+    <button type="submit" class="btn-pagar">
+      Confirmar pedido y coordinar pago
+    </button>
+
+  </form>
+
+
+  <!-- RESUMEN -->
+  <div class="checkout-resumen">
+
+    <h2>Resumen</h2>
+
+    <div id="resumenPedido"></div>
+
+    <div class="resumen-total">
+      <strong>Total:</strong> $
+      <span id="totalCompra">0</span>
+    </div>
+
+  </div>
+
+</main>
+
+
+<!-- TOAST -->
+<div id="toastSuccess" class="toast-full">
+
+  <div class="toast-box">
+
+    <h3>Pedido Enviado ✅</h3>
+
+    <p>
+      Te redirigimos a WhatsApp para coordinar el pago.
+    </p>
+
+  </div>
+
+</div>
+
+<footer class="footer">
+  <p>© 2026 - SR. Veterinaria</p>
+</footer>
+
+
+<!-- SCRIPTS -->
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+  emailjs.init("qhcQW-rYYTo3ZgjXs");
+</script>
+
+<script src="js/checkout.js"></script>
+
+</body>
+</html>

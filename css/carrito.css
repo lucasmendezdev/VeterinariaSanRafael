@@ -1,0 +1,99 @@
+/* ===============================
+   CONTENEDOR
+=============================== */
+
+.carrito {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.carrito h1 {
+  margin-bottom: 30px;
+}
+
+
+/* ===============================
+   ITEMS
+=============================== */
+
+.item {
+  display: grid;
+  grid-template-columns: 80px 1fr auto auto;
+  gap: 20px;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding: 20px 0;
+}
+
+.item img {
+  width: 80px;
+}
+
+.item h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.item span {
+  color: #555;
+}
+
+
+/* ===============================
+   CANTIDAD
+=============================== */
+
+.cantidad {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cantidad button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  background: none;
+  cursor: pointer;
+}
+
+
+/* ===============================
+   OTROS
+=============================== */
+
+.eliminar {
+  cursor: pointer;
+  color: #999;
+}
+
+.resumen {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.resumen .btn {
+  padding: 14px 30px;
+  background: #000;
+  color: #fff;
+  border: none;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  border-radius: 2px;
+}
+
+.btn:hover {
+  background: #111;
+  transform: translateY(-2px);
+}
+
+/* Toast warning */
+
+.toast-warning {
+  background: #f97316; /* Naranja */
+  color: #fff;
+  font-weight: 600;
+}
