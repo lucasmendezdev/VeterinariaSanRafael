@@ -1,164 +1,54 @@
-/* ===============================
- CONTENEDOR GENERAL
-=============================== */
-
-.about-container {
-  max-width: 1200px;
-  margin: 0 auto;
-
-  padding: 60px 20px;
+.about-premium {
+  padding: 80px 20px;
 }
 
-.about-container h1 {
-  text-align: center;
-  margin-bottom: 50px;
-
-  font-size: 32px;
-}
-
-
-/* ===============================
- GRID PRINCIPAL
-=============================== */
-
-.about-grid {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
+.about-split {
+  display: flex;
   gap: 50px;
-
+  max-width: 1200px;
+  margin: auto;
   align-items: center;
 }
 
-
-/* ===============================
- IMAGEN
-=============================== */
-
-.about-img img {
+.about-left img {
   width: 100%;
-
-  border-radius: 8px;
-
-  object-fit: cover;
-
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-
-/* ===============================
- INFO
-=============================== */
-
-.about-info h2 {
-  font-size: 24px;
+.about-right h1 {
+  font-size: 2.5rem;
   margin-bottom: 15px;
 }
 
-.about-info h3 {
-  font-size: 18px;
-
-  margin-top: 25px;
-  margin-bottom: 10px;
-}
-
-.about-info p {
-  color: #444;
-
-  line-height: 1.6;
-
-  margin-bottom: 15px;
-}
-
-
-/* ===============================
- CONTACTO
-=============================== */
-
-.about-contacto {
-  list-style: none;
-
-  padding: 0;
+.about-highlight {
+  color: #00c853;
+  font-weight: 600;
   margin-bottom: 20px;
 }
 
-.about-contacto li {
-  margin-bottom: 6px;
-
-  font-size: 14px;
-}
-
-
-/* ===============================
- REDES
-=============================== */
-
-.about-redes {
+.about-stats {
   display: flex;
-
-  gap: 15px;
+  gap: 40px;
+  margin-top: 30px;
 }
 
-.about-redes a {
-  text-decoration: none;
-
-  padding: 8px 16px;
-
-  border: 1px solid #000;
-
-  color: #000;
-
-  font-size: 14px;
-
-  border-radius: 4px;
-
-  transition: all 0.2s ease;
+.about-stats h2 {
+  color: #00c853;
+  font-size: 2rem;
 }
 
-.about-redes a:hover {
-  background: #000;
-  color: #fff;
+.about-stats span {
+  font-size: 0.9rem;
+  opacity: 0.7;
 }
-
-
-/* ===============================
- RESPONSIVE
-=============================== */
 
 @media (max-width: 900px) {
-
-  .about-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about-container {
-    padding: 40px 15px;
-  }
-
-  .about-container h1 {
-    font-size: 26px;
-  }
-
-  .about-info h2 {
-    font-size: 22px;
-  }
-
-}
-
-
-@media (max-width: 500px) {
-
-  .about-container {
-    padding: 30px 12px;
-  }
-
-  .about-redes {
+  .about-split {
     flex-direction: column;
   }
 
-  .about-redes a {
-    text-align: center;
+  .about-stats {
+    justify-content: space-between;
   }
-
 }
