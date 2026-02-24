@@ -15,23 +15,35 @@
 
 <body>
 
-<!-- ================= HEADER ================= -->
-<header class="header">
+<header class="main-header">
 
-  <div class="header__logo">
-    <a href="index.html">
-      <img src="assets/img/logoVete.jpg" alt="SR Veterinaria">
-    </a>
+  <div class="header-container">
+
+    <!-- Logo -->
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/img/logoVete.jpg" alt="SR Veterinaria">
+      </a>
+    </div>
+
+    <!-- Botón hamburguesa -->
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Navegación -->
+    <nav class="nav" id="navMenu">
+      <a href="index.html">Inicio</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="carrito.html" class="carrito-link">
+        🛒 Carrito <span id="contadorCarrito">0</span>
+      </a>
+    </nav>
+
   </div>
-
-  <nav class="header__nav">
-    <a href="index.html">Inicio</a>
-    <a href="catalogo.html">Catálogo</a>
-    <a href="nosotros.html">Nosotros</a>
-    <a href="carrito.html">
-      Carrito <span id="contadorCarrito">0</span>
-    </a>
-  </nav>
 
 </header>
 
