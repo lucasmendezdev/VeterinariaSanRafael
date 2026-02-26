@@ -11,3 +11,4 @@ setInterval(() => {
   slides[index].classList.add("active");
 
 }, 4000);
+
