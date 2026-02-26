@@ -1,0 +1,149 @@
+/* ===============================
+   SUCURSALES
+=============================== */
+
+.sucursales {
+  padding: 100px 20px;
+  background: var(--color-light);
+  text-align: center;
+}
+
+.sucursales h2 {
+  font-size: 32px;
+  margin-bottom: 60px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+/* GRID */
+
+.sucursales-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* CARD */
+
+.sucursal-card {
+  position: relative;
+  height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition);
+}
+
+/* Imagen */
+
+.sucursal-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(60%);
+  transition: transform 0.5s ease, filter 0.4s ease;
+}
+
+/* Overlay suave */
+
+.sucursal-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.7),
+    rgba(0,0,0,0.2)
+  );
+}
+
+/* Dirección */
+
+.sucursal-card h3 {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  z-index: 2;
+  transition: var(--transition);
+}
+
+/* Hover efecto premium */
+
+.sucursal-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+.sucursal-card:hover img {
+  transform: scale(1.08);
+  filter: brightness(75%);
+}
+
+.sucursal-card:hover h3 {
+  transform: translateY(-4px);
+}
+
+/* =====================================================
+   SUCURSALES MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+  .sucursales {
+    padding: 60px 20px;
+  }
+
+  .sucursales h2 {
+    font-size: 22px;
+    margin-bottom: 35px;
+    letter-spacing: 1px;
+  }
+
+  /* GRID */
+
+  .sucursales-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  /* CARD */
+
+  .sucursal-card {
+    height: 220px;
+    border-radius: 16px;
+  }
+
+  .sucursal-card img {
+    filter: brightness(65%);
+  }
+
+  .sucursal-card h3 {
+    font-size: 16px;
+    bottom: 18px;
+    left: 18px;
+  }
+
+  /* Sacamos efectos hover en mobile */
+
+  .sucursal-card:hover {
+    transform: none;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .sucursal-card:hover img {
+    transform: none;
+    filter: brightness(65%);
+  }
+
+  .sucursal-card:hover h3 {
+    transform: none;
+  }
+
+}

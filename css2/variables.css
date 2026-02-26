@@ -1,0 +1,27 @@
+:root {
+
+  /* Colores principales */
+  --color-primary: #00c853;
+  --color-primary-dark: #00a843;
+  --color-accent: #22c55e;
+  --color-dark: #111;
+  --color-light: #f8fafc;
+  --color-gray: #777;
+  --color-white: #ffffff;
+
+  /* Tipografía */
+  --font-main: 'Inter', sans-serif;
+
+  /* Sombras */
+  --shadow-soft: 0 8px 20px rgba(0,0,0,0.05);
+  --shadow-medium: 0 4px 15px rgba(0,0,0,0.4);
+
+  /* Bordes */
+  --radius-small: 10px;
+  --radius-medium: 16px;
+  --radius-large: 30px;
+
+  /* Transiciones */
+  --transition: 0.3s ease;
+
+}

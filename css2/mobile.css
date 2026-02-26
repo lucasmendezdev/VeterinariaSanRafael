@@ -1,0 +1,31 @@
+@media (max-width: 900px) {
+
+  .nav {
+    position: absolute;
+    top: 70px;
+    right: -100%;
+    flex-direction: column;
+    background: var(--color-dark);
+    width: 220px;
+    padding: 25px;
+    gap: 20px;
+    transition: var(--transition);
+  }
+
+  .nav.active {
+    right: 0;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+}

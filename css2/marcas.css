@@ -1,0 +1,58 @@
+.marcas-carousel {
+  height: 120px;
+  overflow: hidden;
+  background: var(--color-light);
+  display: flex;
+  align-items: center;
+}
+
+.marcas-track {
+  display: flex;
+  gap: 80px;
+  animation: scrollMarcas 25s linear infinite;
+}
+
+.marca-item img {
+  height: 60px;
+  object-fit: contain;
+  transition: var(--transition);
+}
+
+.marca-item img:hover {
+  transform: scale(1.1);
+}
+
+@keyframes scrollMarcas {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* =====================================================
+   MARCAS CAROUSEL MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+  .marcas-carousel {
+    height: 90px;
+  }
+
+  .marcas-track {
+    gap: 40px;
+    animation: scrollMarcasMobile 18s linear infinite;
+  }
+
+  .marca-item img {
+    height: 40px;
+  }
+
+  .marca-item img:hover {
+    transform: none; /* evitamos hover raro en mobile */
+  }
+
+  @keyframes scrollMarcasMobile {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+}

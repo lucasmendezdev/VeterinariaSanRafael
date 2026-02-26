@@ -97,3 +97,87 @@
   color: #fff;
   font-weight: 600;
 }
+
+
+/* ===============================
+   MOBILE CARRITO
+=============================== */
+
+@media (max-width: 768px) {
+
+  .carrito {
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  .carrito h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  /* ITEM */
+
+  .item {
+    grid-template-columns: 70px 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 12px;
+    padding: 18px 0;
+  }
+
+  .item img {
+    width: 70px;
+    grid-row: span 3;
+    border-radius: 8px;
+  }
+
+  .item h3 {
+    font-size: 15px;
+  }
+
+  .item span {
+    font-size: 14px;
+  }
+
+  /* CANTIDAD */
+
+  .cantidad {
+    grid-column: 2;
+    justify-content: flex-start;
+  }
+
+  .cantidad button {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  /* ELIMINAR */
+
+  .eliminar {
+    grid-column: 2;
+    font-size: 14px;
+    color: #ef4444;
+    font-weight: 500;
+  }
+
+  /* RESUMEN */
+
+  .resumen {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+    margin-top: 30px;
+  }
+
+  .resumen h2 {
+    font-size: 20px;
+  }
+
+  .resumen .btn {
+    width: 100%;
+    text-align: center;
+    padding: 16px;
+    font-size: 15px;
+  }
+
+}
