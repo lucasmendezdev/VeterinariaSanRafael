@@ -3,40 +3,69 @@
 =============================== */
 
 .carrito {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px 80px;
 }
 
 .carrito h1 {
-  margin-bottom: 30px;
+  font-size: 32px;
+  margin-bottom: 40px;
+  font-weight: 600;
 }
 
 
 /* ===============================
-   ITEMS
+   LISTA
+=============================== */
+
+.lista-carrito {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+
+/* ===============================
+   ITEM
 =============================== */
 
 .item {
   display: grid;
-  grid-template-columns: 80px 1fr auto auto;
-  gap: 20px;
+  grid-template-columns: 100px 1fr auto auto;
+  gap: 25px;
   align-items: center;
-  border-bottom: 1px solid #eee;
-  padding: 20px 0;
+  padding: 25px;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  background: #fff;
+  transition: all 0.25s ease;
+}
+
+.item:hover {
+  box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+  transform: translateY(-2px);
 }
 
 .item img {
-  width: 80px;
+  width: 100px;
+  border-radius: 10px;
 }
 
-.item h3 {
-  font-size: 16px;
-  margin-bottom: 5px;
+.item .info h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
 }
 
-.item span {
-  color: #555;
+.item .info span {
+  font-size: 14px;
+  color: #666;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.item .info strong {
+  font-size: 18px;
 }
 
 
@@ -47,53 +76,175 @@
 .cantidad {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
 }
 
 .cantidad button {
-  width: 30px;
-  height: 30px;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
   border: 1px solid #ddd;
-  background: none;
+  background: #f9f9f9;
   cursor: pointer;
+  font-size: 18px;
+  transition: all 0.2s ease;
+}
+
+.cantidad button:hover {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.cantidad button:active {
+  transform: scale(0.92);
+}
+
+.cantidad span {
+  font-size: 16px;
+  font-weight: 600;
+  min-width: 24px;
+  text-align: center;
 }
 
 
 /* ===============================
-   OTROS
+   ELIMINAR
 =============================== */
 
 .eliminar {
-  cursor: pointer;
+  font-size: 18px;
   color: #999;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
+.eliminar:hover {
+  color: #000;
+  transform: scale(1.2);
+}
+
+
+/* ===============================
+   RESUMEN
+=============================== */
+
 .resumen {
-  margin-top: 40px;
+  margin-top: 50px;
+  padding: 30px;
+  border: 1px solid #eee;
+  border-radius: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: #fafafa;
+}
+
+.resumen p {
+  font-size: 16px;
+  margin: 0;
+}
+
+.resumen strong {
+  font-size: 24px;
+  font-weight: 600;
 }
 
 .resumen .btn {
   padding: 14px 30px;
   background: #000;
   color: #fff;
-  border: none;
   text-decoration: none;
+  border-radius: 10px;
   transition: all 0.25s ease;
-  border-radius: 2px;
 }
 
-.btn:hover {
+.resumen .btn:hover {
   background: #111;
   transform: translateY(-2px);
 }
 
-/* Toast warning */
+.resumen .btn:active {
+  transform: scale(0.97);
+}
 
-.toast-warning {
-  background: #f97316; /* Naranja */
-  color: #fff;
-  font-weight: 600;
+
+/* ===============================
+   MOBILE
+=============================== */
+
+@media (max-width: 768px) {
+
+  .carrito {
+    margin: 30px auto;
+    padding: 0 15px 140px;
+  }
+
+  .carrito h1 {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+
+  .item {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 18px;
+  }
+
+  .item img {
+    width: 100%;
+    max-width: 140px;
+    margin: 0 auto;
+  }
+
+  .item .info {
+    text-align: center;
+  }
+
+  .item .info strong {
+    font-size: 20px;
+  }
+
+  .cantidad {
+    justify-content: center;
+    gap: 22px;
+  }
+
+  .cantidad button {
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+  }
+
+  .eliminar {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+  }
+
+  /* Resumen fijo tipo app */
+
+  .resumen {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 0;
+    border-top: 1px solid #eee;
+    box-shadow: 0 -6px 20px rgba(0,0,0,0.05);
+    padding: 18px;
+    background: #fff;
+    z-index: 50;
+    padding-bottom: calc(18px + env(safe-area-inset-bottom));
+  }
+
+  .resumen strong {
+    font-size: 20px;
+  }
+
+  .resumen .btn {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
 }
