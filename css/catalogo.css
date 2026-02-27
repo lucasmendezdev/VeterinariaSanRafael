@@ -22,12 +22,12 @@
 }
 
 .filtro-btn:hover {
-  background: #111;
+  background:#16a34a;
   color: #fff;
 }
 
 .filtro-btn.active {
-  background: #111;
+  background: #16a34a;
   color: #fff;
 }
 
@@ -108,7 +108,7 @@
   width: 100%;
   padding: 10px;
 
-  background: #111;
+  background:#16a34a;
   color: #fff;
 
   border: none;
@@ -122,7 +122,7 @@
 }
 
 .btn-agregar:hover {
-  background: #000;
+  background: #0f6e32;
 }
 
 .btn-agregar:active {

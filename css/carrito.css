@@ -91,9 +91,9 @@
 }
 
 .cantidad button:hover {
-  background: #000;
+  background: #16a34a;
   color: #fff;
-  border-color: #000;
+  border-color: #16a34a;
 }
 
 .cantidad button:active {
@@ -152,7 +152,7 @@
 
 .resumen .btn {
   padding: 14px 30px;
-  background: #000;
+  background:#16a34a;
   color: #fff;
   text-decoration: none;
   border-radius: 10px;
@@ -160,7 +160,7 @@
 }
 
 .resumen .btn:hover {
-  background: #111;
+  background: #0e6b30;
   transform: translateY(-2px);
 }
 
