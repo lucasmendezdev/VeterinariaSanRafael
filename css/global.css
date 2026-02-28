@@ -308,6 +308,7 @@ a:active {
   height: 60px;
   object-fit: contain;
   transition: 0.3s ease;
+  border-radius: 10px;
 }
 
 .marca-item img:hover {
