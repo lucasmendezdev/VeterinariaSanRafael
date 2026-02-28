@@ -25,137 +25,9 @@ a:active {
   transform: scale(0.97);
 }
 
-/* ===============================
-   HEADER MODERNO
-=================================*/
-
-.main-header {
-  width: 100%;
-  height: 100px;
-  background: rgb(3, 3, 3);
-
-  position: sticky;
-  
-  z-index: 1000;
-  
-  padding-top: 20px;
-}
-
-.header-container {
-  width: 100%;
-  height: 50px;
-  margin: auto;
-  padding: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* LOGO */
-.logo img {
-  border-radius: 10px;
-}
-
-/* NAV DESKTOP */
-.nav {
-  display: flex;
-  gap: 30px;
-  align-items: center;
-  color: #00c853;
-}
-
-.nav a {
-  color: #00c853;
-  text-decoration: none;
-  font-weight: 500;
-  position: relative;
-  transition: 0.3s;
-}
-
-.nav a::after {
-  content: "";
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background: #00c853;
-  transition: 0.3s;
-}
-
-.nav a:hover::after {
-  width: 100%;
-}
-
-.nav a:hover {
-  color: #c83200;
-}
-
-/* CARRITO */
-.carrito-link {
-  background:#00c853;
-  padding: 8px 14px;
-  border-radius: 20px;
-  color: white !important;
-  font-size: 14px;
-}
-
-.carrito-link span {
-  background: white;
-  color: #ad00c8;
-  padding: 2px 6px;
-  border-radius: 50%;
-  font-size: 12px;
-  margin-left: 5px;
-}
-
-/* HAMBURGUESA */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-}
-
-.menu-toggle span {
-  width: 25px;
-  height: 3px;
-  background: white;
-  border-radius: 3px;
-  transition: 0.3s;
-}
 
 /* ===============================
-   MOBILE
-=================================*/
-
-@media (max-width: 768px) {
-
-  .nav {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: #111;
-    flex-direction: column;
-    width: 220px;
-    padding: 20px;
-    gap: 20px;
-    transform: translateX(100%);
-    transition: 0.3s ease;
-    border-radius: 0 0 0 15px;
-  }
-
-  .nav.active {
-    transform: translateX(0);
-  }
-
-  .menu-toggle {
-    display: flex;
-  }
-
-}
-/* ===============================
-   HERO VETERINARIA
+   HERO
 =============================== */
 
 .hero {
@@ -167,24 +39,20 @@ a:active {
   text-align: center;
   padding: 20px;
   overflow: hidden;
-
-  background: 
+  background:
     linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
     url("../assets/img/pablo1.png");
-
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   color: #ffffff;
 }
 
-/* Contenido */
 .hero-content {
   max-width: 850px;
   animation: fadeUp 1.2s ease forwards;
 }
 
-/* Título */
 .hero h1 {
   font-size: 48px;
   line-height: 1.2;
@@ -192,14 +60,12 @@ a:active {
   font-weight: 700;
 }
 
-/* Texto */
 .hero p {
   font-size: 20px;
   margin-bottom: 35px;
   opacity: 0.9;
 }
 
-/* Contenedor botones */
 .hero-buttons {
   display: flex;
   justify-content: center;
@@ -207,42 +73,38 @@ a:active {
   flex-wrap: wrap;
 }
 
-/* Botón principal */
-.btn-primary {
-  background: #00c853;
-  color: white;
-  padding: 14px 30px;
-  border-radius: 40px;
-  font-weight: 600;
+/* BOTONES */
+
+.btn-primary,
+.btn-secondary {
+  padding: 14px 28px;
+  border-radius: 30px;
   text-decoration: none;
+  font-weight: 600;
   transition: 0.3s ease;
+}
+
+.btn-primary {
+  background: #22c55e;
+  color: white;
 }
 
 .btn-primary:hover {
-  background: #00a383;
+  background: #16a34a;
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
-/* Botón secundario */
 .btn-secondary {
-  background: transparent;
   border: 2px solid white;
   color: white;
-  padding: 14px 30px;
-  border-radius: 40px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: 0.3s ease;
 }
 
 .btn-secondary:hover {
   background: white;
-  color: #111;
-  transform: translateY(-3px);
+  color: black;
 }
 
-/* Animación entrada */
+/* Animación */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -254,21 +116,7 @@ a:active {
   }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
 
-  .hero h1 {
-    font-size: 32px;
-  }
-
-  .hero p {
-    font-size: 16px;
-  }
-
-  .hero {
-    background-attachment: scroll;
-  }
-}
 /* ===============================
    SLIDER
 =============================== */
@@ -303,16 +151,13 @@ a:active {
   bottom: 0;
   left: 0;
   width: 100%;
-
   padding: 30px 50px;
-
   background: linear-gradient(
     to top,
     rgba(0,0,0,0.7),
     rgba(0,0,0,0.2),
     transparent
   );
-
   color: #fff;
 }
 
@@ -329,16 +174,12 @@ a:active {
 
 .slide-text .btn {
   display: inline-block;
-  text-decoration: none;
-
   background: #fff;
   color: #000;
-
   padding: 10px 20px;
   border-radius: 4px;
-
   font-weight: 600;
-  transition: all 0.2s ease;
+  transition: 0.2s ease;
 }
 
 .slide-text .btn:hover {
@@ -350,6 +191,7 @@ a:active {
 /* ===============================
    DESTACADOS
 =============================== */
+
 .destacados {
   padding: 80px 20px;
   text-align: center;
@@ -398,9 +240,6 @@ a:active {
 /* ===============================
    SUCURSALES
 =============================== */
-/* ===============================
-   SUCURSALES ESTILO DESTACADOS
-=============================== */
 
 .sucursales-grid {
   display: grid;
@@ -441,6 +280,7 @@ a:active {
   letter-spacing: 1px;
 }
 
+
 /* ===============================
    CARRUSEL MARCAS
 =============================== */
@@ -467,16 +307,13 @@ a:active {
 .marca-item img {
   height: 60px;
   object-fit: contain;
-  
   transition: 0.3s ease;
 }
 
 .marca-item img:hover {
-  filter: grayscale(0%);
   transform: scale(1.1);
 }
 
-/* Animación infinita */
 @keyframes scrollMarcas {
   from {
     transform: translateX(0);
@@ -488,65 +325,24 @@ a:active {
 
 
 /* ===============================
-   FOOTER
-=============================== */
-
-.footer {
-  width: 100%;
-  padding: 40px 20px;
-  text-align: center;
-  border-top: 1px solid #eee;
-  font-size: 13px;
-  color: #777;
-}
-
-
-/* ===============================
-   MOBILE OPTIMIZADO
+   RESPONSIVE
 =============================== */
 
 @media (max-width: 768px) {
 
-  /* HEADER */
-  .header {
-    height: 56px;
-    padding: 0 15px;
-  }
-
-  .header__logo img {
-    height: 40px;
-  }
-
-  .header__nav {
-    gap: 16px;
-  }
-
-  .header__nav a {
-    font-size: 13px;
-  }
-
-  /* HERO */
   .hero {
-    min-height: calc(100svh - 56px);
+    background-attachment: scroll;
     padding: 40px 20px;
   }
 
-  .hero h2 {
-    font-size: 28px;
-    line-height: 1.2;
+  .hero h1 {
+    font-size: 32px;
   }
 
   .hero p {
-    font-size: 15px;
-    max-width: 90%;
+    font-size: 16px;
   }
 
-  .hero .btn {
-    width: 100%;
-    padding: 14px;
-  }
-
-  /* SLIDER */
   .slider {
     height: 75svh;
   }
@@ -566,10 +362,8 @@ a:active {
   .slide-text .btn {
     width: 100%;
     text-align: center;
-    padding: 10px;
   }
 
-  /* DESTACADOS */
   .destacados {
     padding: 50px 15px;
   }
@@ -583,192 +377,4 @@ a:active {
     gap: 15px;
   }
 
-  .destacado-card img {
-    height: 170px;
-  }
-
 }
-
-
-/* ===================================
-   HERO + HEADER INTEGRADOS
-=================================== */
-
-.hero-header {
-  position: relative;
-  height: 100vh;
-  background: url("../assets/img/hero-veterinaria.jpg") center/cover no-repeat;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  color: white;
-}
-
-/* Overlay oscuro */
-
-.hero-header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.6),
-    rgba(0,0,0,0.5)
-  );
-  z-index: 0;
-}
-
-/* HEADER */
-
-.header-container {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 25px 8%;
-  transition: 0.3s ease;
-}
-
-/* Header sólido al hacer scroll */
-
-.hero-header.scrolled .header-container {
-  background: rgba(0,0,0,0.85);
-  backdrop-filter: blur(10px);
-}
-
-/* LOGO */
-
-.logo img {
-  height: 60px;
-}
-
-/* NAV */
-
-.nav {
-  display: flex;
-  gap: 30px;
-}
-
-.nav a {
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-  transition: 0.3s ease;
-}
-
-.nav a:hover {
-  color: #22c55e;
-}
-
-/* HERO CONTENT */
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  max-width: 800px;
-  margin: auto;
-  padding: 0 20px;
-  transform: translateY(-40px);
-}
-
-.hero-content h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
-  line-height: 1.2;
-}
-
-.hero-content p {
-  font-size: 18px;
-  margin-bottom: 30px;
-  opacity: 0.9;
-}
-
-/* BOTONES */
-
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.btn-primary,
-.btn-secondary {
-  padding: 14px 28px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s ease;
-}
-
-.btn-primary {
-  background: #22c55e;
-  color: white;
-}
-
-.btn-primary:hover {
-  background: #16a34a;
-  transform: translateY(-3px);
-}
-
-.btn-secondary {
-  border: 2px solid white;
-  color: white;
-}
-
-.btn-secondary:hover {
-  background: white;
-  color: black;
-}
-
-/* =========================
-   HAMBURGUESA
-========================= */
-
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 6px;
-  cursor: pointer;
-}
-
-.menu-toggle span {
-  width: 25px;
-  height: 3px;
-  background: white;
-  border-radius: 3px;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 900px) {
-
-  .nav {
-    position: absolute;
-    top: 90px;
-    right: -100%;
-    flex-direction: column;
-    background: rgba(0,0,0,0.95);
-    width: 250px;
-    padding: 30px;
-    transition: 0.3s ease;
-  }
-
-  .nav.activo {
-    right: 0;
-  }
-
-  .menu-toggle {
-    display: flex;
-  }
-
-  .hero-content h1 {
-    font-size: 32px;
-  }
-
-}
-
