@@ -3,15 +3,13 @@
 =============================== */
 
 .checkout-container {
-  max-width: 1100px;
-  margin: 40px auto;
-  padding: 30px 20px;
-
-  display: grid;
-  grid-template-columns: 1fr 350px;
-  gap: 40px;
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px 25px;
+  grid-template-columns: 1fr 380px;
+  gap: 50px;
+  align-items: center;
 }
-
 
 
 /* ===============================
@@ -20,17 +18,17 @@
 
 .checkout-container h1 {
   grid-column: 1 / -1;
-
   text-align: center;
-  font-size: 28px;
-  margin-bottom: 10px;
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 5px;
 }
 
 .checkout-container h2 {
   font-size: 18px;
-  margin: 20px 0 10px;
+  font-weight: 600;
+  margin: 25px 0 15px;
 }
-
 
 
 /* ===============================
@@ -39,18 +37,16 @@
 
 .checkout-info {
   grid-column: 1 / -1;
-
   text-align: center;
   font-size: 14px;
-  color: #555;
+  color: #666;
 
-  background: #f7f7f7;
-  padding: 12px;
+  background: #f3f4f6;
+  padding: 14px;
+  border-radius: 8px;
 
-  border-radius: 4px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
-
 
 
 /* ===============================
@@ -58,13 +54,14 @@
 =============================== */
 
 #checkoutForm {
-  background: #fafafa;
-  border: 1px solid #eee;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
 
-  padding: 25px;
-  border-radius: 6px;
+  padding: 30px;
+  border-radius: 12px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
 }
-
 
 
 /* ===============================
@@ -73,10 +70,9 @@
 
 .grupo {
   display: flex;
-  gap: 12px;
-  margin-bottom: 12px;
+  gap: 15px;
+  margin-bottom: 15px;
 }
-
 
 
 /* ===============================
@@ -85,24 +81,23 @@
 
 #checkoutForm input {
   width: 100%;
+  padding: 12px 14px;
 
-  padding: 10px 12px;
-
-  border: 1px solid #eee;
-  border-radius: 4px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
 
   font-size: 14px;
+  background: #fafafa;
 
+  transition: all 0.2s ease;
   outline: none;
-  transition: border 0.2s ease;
 }
 
 #checkoutForm input:focus {
+  background: #fff;
   border-color: #000;
-  
-
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.05);
 }
-
 
 
 /* ===============================
@@ -111,25 +106,23 @@
 
 .btn-envio {
   width: 100%;
+  padding: 12px;
+  margin: 18px 0;
 
-  padding: 10px;
-  margin: 15px 0;
-
-  background: #ffffff;
-  border: 1px solid #eee;
-
-  border-radius: 4px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
 
   font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
 
-  transition: all 0.2s ease;
+  transition: 0.2s ease;
 }
 
 .btn-envio:hover {
-  background: #f5f5f5;
+  background: #f3f4f6;
 }
-
 
 
 /* ===============================
@@ -138,13 +131,12 @@
 
 .envio-box {
   display: none;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
 
 .envio-box.show {
   display: block;
 }
-
 
 
 /* ===============================
@@ -153,32 +145,30 @@
 
 .btn-pagar {
   width: 100%;
-
-  padding: 12px;
-  margin-top: 15px;
+  padding: 14px;
+  margin-top: 20px;
 
   background: #000;
   color: #fff;
 
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
 
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
 
   cursor: pointer;
-
   transition: all 0.2s ease;
 }
 
 .btn-pagar:hover {
-  background: #222;
+  background: #111;
+  transform: translateY(-2px);
 }
 
 .btn-pagar:active {
-  transform: scale(0.97);
+  transform: scale(0.98);
 }
-
 
 
 /* ===============================
@@ -186,23 +176,23 @@
 =============================== */
 
 .checkout-resumen {
-  background: #fafafa;
+  background: #ffffff;
+  margin-top: 30px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
 
-  border: 1px solid #eee;
-  border-radius: 6px;
+  padding: 25px;
 
-  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
 
-  height: fit-content;
+  position: sticky;
+  top: 120px;
 }
-
-
 
 .checkout-resumen h2 {
   font-size: 18px;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
-
 
 
 /* ===============================
@@ -212,13 +202,17 @@
 .resumen-item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   font-size: 14px;
-  padding: 6px 0;
+  padding: 10px 0;
 
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #f1f1f1;
 }
 
+.resumen-item:last-child {
+  border-bottom: none;
+}
 
 
 /* ===============================
@@ -226,21 +220,19 @@
 =============================== */
 
 .resumen-total {
-  margin-top: 15px;
-
-  font-size: 16px;
+  margin-top: 20px;
+  font-size: 17px;
+  font-weight: 600;
   text-align: right;
 }
 
 
-
 /* ===============================
-   TOAST FULL
+   TOAST OVERLAY
 =============================== */
 
 .toast-full {
   position: fixed;
-
   inset: 0;
 
   background: rgba(0,0,0,0.6);
@@ -253,7 +245,6 @@
   pointer-events: none;
 
   transition: opacity 0.3s ease;
-
   z-index: 9999;
 }
 
@@ -263,24 +254,20 @@
 }
 
 
-
 /* ===============================
    TOAST BOX
 =============================== */
 
 .toast-box {
   background: #fff;
-
   padding: 35px 30px;
-
-  border-radius: 8px;
+  border-radius: 16px;
 
   text-align: center;
-
-  max-width: 320px;
+  max-width: 380px;
   width: 90%;
 
-  animation: pop 0.4s ease;
+  animation: pop 0.35s ease;
 }
 
 .toast-box h3 {
@@ -290,9 +277,8 @@
 
 .toast-box p {
   font-size: 14px;
-  color: #555;
+  color: #666;
 }
-
 
 
 /* ===============================
@@ -300,12 +286,10 @@
 =============================== */
 
 @keyframes pop {
-
   0% {
-    transform: scale(0.8);
+    transform: scale(0.9);
     opacity: 0;
   }
-
   100% {
     transform: scale(1);
     opacity: 1;
@@ -313,78 +297,45 @@
 }
 
 
-
 /* ===============================
-   RESPONSIVE MOBILE
+   RESPONSIVE
 =============================== */
 
 @media (max-width: 900px) {
 
   .checkout-container {
     grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .checkout-resumen {
+    position: relative;
+    top: auto;
   }
 
 }
 
-
-
 @media (max-width: 600px) {
 
   .checkout-container {
-    margin: 20px auto;
+    margin: 30px auto;
     padding: 15px;
   }
 
-
   .checkout-container h1 {
-    font-size: 22px;
+    font-size: 24px;
   }
-
 
   .grupo {
     flex-direction: column;
   }
 
-
   #checkoutForm {
     padding: 20px;
   }
-
-
-  .checkout-resumen {
-    margin-top: 25px;
-  }
-
 
   .btn-pagar {
     font-size: 14px;
   }
 
-}
-
-
-.toast-full {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.3s ease;
-  z-index: 9999;
-}
-
-.toast-full.show {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.toast-box {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  text-align: center;
-  max-width: 400px;
 }
